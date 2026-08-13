@@ -43,7 +43,7 @@ body{
   padding-bottom:env(safe-area-inset-bottom);
 }
 button{font-family:inherit;}
-.app{max-width:480px;margin:0 auto;min-height:100vh;background:var(--paper);position:relative;display:flex;flex-direction:column;padding-bottom:26px;}
+.app{max-width:480px;margin:0 auto;min-height:100vh;background:var(--paper);position:relative;display:flex;flex-direction:column;padding-bottom:calc(26px + env(safe-area-inset-bottom));}
 .hidden{display:none !important;}
 
 /* ---------- top bar ---------- */
@@ -290,7 +290,10 @@ footer.note{padding:10px 16px 26px;text-align:center;font-size:11px;color:var(--
 
 /* ---------- site footer ---------- */
 .site-footer{
-  position:absolute;left:0;right:0;bottom:0;height:26px;
+  position:fixed;left:50%;bottom:0;transform:translateX(-50%);
+  width:100%;max-width:480px;
+  height:calc(26px + env(safe-area-inset-bottom));
+  padding-bottom:env(safe-area-inset-bottom);
   display:flex;align-items:center;justify-content:center;
   background:var(--paper-2);border-top:1px solid var(--line-dk);
   font-size:11px;color:var(--muted-2);z-index:15;
